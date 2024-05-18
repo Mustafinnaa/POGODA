@@ -143,7 +143,7 @@ namespace POGODA
             var sameTemperatureDays = _weatherData.GroupBy(d => d.Temperature).Where(g => g.Count() > 1)
                 .Select(g => $"Date: {string.Join(", ", g.Select(d => d.Date.ToShortDateString()))}, Temperature: {g.Key}°C");
 
-            string sameTemperatureDetails = sameTemperatureDays.Any() ? string.Join("\n", sameTemperatureDays) : "нет дней с одикоковой температурой";
+            string sameTemperatureDetails = sameTemperatureDays.Any() ? string.Join("\n", sameTemperatureDays) : "нет дней с одинаковой температурой";
 
             MessageBox.Show($"средняя температура: {averageTemperature}\n\nмаксимальная температура: {maxTemperature}\n\nминимальная температура: {minTemperature}\n\nтемпература была одинаковой: {sameTemperatureCount} раз\n{sameTemperatureDetails}\n\nаномальный подъем и спад температуры: {anomalyCount} раз\n{anomalyDetails}");
         }
